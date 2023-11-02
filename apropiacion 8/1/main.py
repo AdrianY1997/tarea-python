@@ -1,17 +1,12 @@
-def separar_pares_impares(lista_numeros):
-    pares = []
-    impares = []
+import pyttsx3
 
-    for numero in lista_numeros:
-        if numero % 2 == 0:
-            pares.append(numero)
-        else:
-            impares.append(numero)
+engine = pyttsx3.init()
 
-    return sorted(pares), sorted(impares)
+texto = "Hola, estoy utilizando pyttsx3 para hablar en Python."
 
-# Ejemplo de uso
-lista_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-pares, impares = separar_pares_impares(lista_numeros)
-print("Números pares:", pares)
-print("Números impares:", impares)
+engine.setProperty('rate', 150)  
+engine.setProperty('volume', 1.0)  
+
+engine.say(texto)
+
+engine.runAndWait()

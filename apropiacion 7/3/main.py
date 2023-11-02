@@ -1,10 +1,21 @@
-def numeros_pares_hasta_n(numero):
-    if numero < 1:
-        return
-    if numero % 2 == 0:
-        print(numero)
-    numeros_pares_hasta_n(numero - 1)
+import datetime
 
-numero = int(input("Ingrese un número: "))
-print("Números pares hasta", numero)
-numeros_pares_hasta_n(numero)
+now = datetime.datetime.now()
+print("Fecha y hora actual:", now)
+
+today = datetime.date.today()
+print("Fecha actual:", today)
+
+current_time = datetime.datetime.now().time()
+print("Hora actual:", current_time)
+
+delta = datetime.timedelta(days=7)
+one_week_later = today + delta
+print("Una semana después:", one_week_later)
+
+formatted_date = today.strftime("%Y-%m-%d")
+print("Fecha formateada:", formatted_date)
+
+date_str = "2023-11-02"
+parsed_date = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+print("Fecha parseada:", parsed_date)

@@ -1,12 +1,9 @@
-def contar_letras(palabra):
-    contador = {}
-    for letra in palabra:
-        if letra in contador:
-            contador[letra] += 1
-        else:
-            contador[letra] = 1
-    return contador
+from mi_paquete.greetings.greetings import saludar, hi, despedir
+from mi_paquete.calculadora.calculadora import sumar
+from mi_paquete.ropa.uniforme import camisa
 
-palabra = input("Digite una palabra: ")
-resultado = contar_letras(palabra)
-print(resultado)
+saludar()
+hi()
+print(sumar(3, 6, 7, 9))
+camisa()
+despedir()

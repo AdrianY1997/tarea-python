@@ -1,17 +1,24 @@
-def separar_pares_impares(lista_numeros):
-    pares = []
-    impares = []
+import random
 
-    for numero in lista_numeros:
-        if numero % 2 == 0:
-            pares.append(numero)
+def adivina_el_numero():
+    numero_secreto = random.randint(0, 10)
+    oportunidades = 3
+
+    print("¡Bienvenido al juego de Adivina el Número!")
+    print("Tienes 3 oportunidades para adivinar un número entre 0 y 10.")
+
+    for _ in range(oportunidades):
+        intento = int(input("Introduce tu suposición: "))
+        if intento == numero_secreto:
+            print("¡Felicidades! Adivinaste el número.")
+            break
         else:
-            impares.append(numero)
+            print("Número incorrecto. ¡Inténtalo de nuevo!")
 
-    return sorted(pares), sorted(impares)
+    else:
+        print(f"El número secreto era {numero_secreto}. ¡El juego ha terminado!")
+        
+    input("Gracias por jugar, presione cualquier tecla...")
 
-# Ejemplo de uso
-lista_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-pares, impares = separar_pares_impares(lista_numeros)
-print("Números pares:", pares)
-print("Números impares:", impares)
+if __name__ == "__main__":
+    adivina_el_numero()

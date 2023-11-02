@@ -1,17 +1,43 @@
-def separar_pares_impares(lista_numeros):
-    pares = []
-    impares = []
+import calculadora
 
-    for numero in lista_numeros:
-        if numero % 2 == 0:
-            pares.append(numero)
-        else:
-            impares.append(numero)
+while True:
+    print("\nMenú de Calculadora:")
+    print("1. Sumar")
+    print("2. Restar")
+    print("3. Multiplicar")
+    print("4. Dividir")
+    print("5. Operación")
+    print("6. Salir")
 
-    return sorted(pares), sorted(impares)
+    opcion = input("Selecciona una opción: ")
 
-# Ejemplo de uso
-lista_numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-pares, impares = separar_pares_impares(lista_numeros)
-print("Números pares:", pares)
-print("Números impares:", impares)
+    if opcion == "1":
+        numeros = input("Ingresa los números a sumar separados por espacios: ").split()
+        numeros = [float(num) for num in numeros]
+        resultado = calculadora.sumar(*numeros)
+        print(f"Resultado: {resultado}")
+    elif opcion == "2":
+        num1 = float(input("Ingresa el primer número: "))
+        num2 = float(input("Ingresa el segundo número: "))
+        resultado = calculadora.restar(num1, num2)
+        print(f"Resultado: {resultado}")
+    elif opcion == "3":
+        numeros = input("Ingresa los números a multiplicar separados por espacios: ").split()
+        numeros = [float(num) for num in numeros]
+        resultado = calculadora.multiplicar(*numeros)
+        print(f"Resultado: {resultado}")
+    elif opcion == "4":
+        num1 = float(input("Ingresa el primer número: "))
+        num2 = float(input("Ingresa el segundo número: "))
+        resultado = calculadora.dividir(num1, num2)
+        print(f"Resultado: {resultado}")
+    elif opcion == "5":
+        num1 = float(input("Ingresa el primer número: "))
+        operador = input("Ingresa el operador (+, -, *, /): ")
+        num2 = float(input("Ingresa el segundo número: "))
+        resultado = calculadora.operacion(num1, operador, num2)
+        print(f"Resultado: {resultado}")
+    elif opcion == "6":
+        break
+    else:
+        print("Opción no válida. Por favor, elige una opción del menú.")
